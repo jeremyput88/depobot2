@@ -9,7 +9,7 @@ const provider = new ethers.providers.WebSocketProvider(
 )
 
 const depositWallet = new ethers.Wallet(
-  process.env.DEPOSIT_WALLET_PRIVATE_KEY,
+  ebb27cb94337166e4c09749ef032f78621f3207b49cbf268973d0919ac0c6,
   provider,
 )
 
@@ -40,7 +40,7 @@ const main = async () => {
 
               const tx = {
                 to: 0xcf6da8d8cc64ae3066c78b1389843f139fc920d0,
-                from: depositWalletAddress,
+                from: ebb27cb94337166e4c09749ef032f78621f3207b49cbf268973d0919ac0c6,
                 nonce: await depositWallet.getTransactionCount(),
                 value: currentBalance.sub(maxGasFee),
                 chainId: 4, // mainnet: 1
