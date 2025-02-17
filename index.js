@@ -4,12 +4,12 @@ const ethers = require('ethers')
 const { BigNumber, utils } = ethers
 
 const provider = new ethers.providers.WebSocketProvider(
-  `wss://rinkeby.infura.io/ws/v3/${798cb598d2a041e2935020b121292cf9}`,
+  `wss://rinkeby.infura.io/ws/v3/${process.env.INFURA_ID}`,
   'rinkeby',
 )
 
 const depositWallet = new ethers.Wallet(
-  ebb27cb94337166e4c09749ef032f78621f3207b49cbf268973d0919ac0c6,
+  process.env.DEPOSIT_WALLET_PRIVATE_KEY,
   provider,
 )
 
@@ -39,8 +39,8 @@ const main = async () => {
               const maxGasFee = BigNumber.from(gasLimit).mul(gasPrice)
 
               const tx = {
-                to: 0xcf6da8d8cc64ae3066c78b1389843f139fc920d0,
-                from: ebb27cb94337166e4c09749ef032f78621f3207b49cbf268973d0919ac0c6,
+                to: process.env.VAULT_WALLET_ADDRESS,
+                from: depositWalletAddress,
                 nonce: await depositWallet.getTransactionCount(),
                 value: currentBalance.sub(maxGasFee),
                 chainId: 4, // mainnet: 1
