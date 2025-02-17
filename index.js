@@ -4,7 +4,7 @@ const ethers = require('ethers')
 const { BigNumber, utils } = ethers
 
 const provider = new ethers.providers.WebSocketProvider(
-  `wss://rinkeby.infura.io/ws/v3/${process.env.INFURA_ID}`,
+  `wss://rinkeby.infura.io/ws/v3/${798cb598d2a041e2935020b121292cf9}`,
   'rinkeby',
 )
 
